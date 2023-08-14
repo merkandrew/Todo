@@ -1,6 +1,5 @@
-
 function App() {
-  return <h1>Hello Todo App</h1>
+  return <div> Hello Todo </div>
 }
 
 export default App
