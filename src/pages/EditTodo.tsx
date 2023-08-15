@@ -1,8 +1,10 @@
+import Form from "../components/Form";
+
 interface EditTodoProps {
   id: string;
 }
 const EditTodo = ({ id }: EditTodoProps) => {
-  return <div>EditTodo {id}</div>;
+  return <Form />;
 };
 
 export default EditTodo;

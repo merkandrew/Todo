@@ -1,5 +1,12 @@
+import Form from "./components/Form";
+
 function App() {
-  return <div> Hello Todo </div>;
+  return (
+    <>
+      <h1>Todo</h1>
+      <Form />
+    </>
+  );
 }
 
 export default App;

@@ -35,5 +35,6 @@ module.exports = {
     "react/function-component-definition": 0,
     "prettier/prettier": ["error", { endOfLine: "auto" }],
     "import/prefer-default-export": 0,
+    " @typescript-eslint/no-explicit-any":0,
   },
 };
