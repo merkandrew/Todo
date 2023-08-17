@@ -8,6 +8,11 @@ type InputFieldProps = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
+type FormProps = {
+  onSubmit: (title: string, description: string) => void;
+  editValue: any;
+};
+
 const InputField = ({ label, value, onChange }: InputFieldProps) => {
   return (
     <TextField
@@ -20,12 +25,15 @@ const InputField = ({ label, value, onChange }: InputFieldProps) => {
   );
 };
 
-const Form = () => {
-  const [todo, handleTodoChange] = useInput("");
-  const [description, handleDescriptionChange] = useInput("");
+const Form = ({ onSubmit, editValue }: FormProps) => {
+  const [title, handleTodoChange] = useInput(editValue?.title || "");
+  const [description, handleDescriptionChange] = useInput(
+    editValue?.description || ""
+  );
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    onSubmit(title, description);
     handleTodoChange({
       target: { value: "" },
     } as ChangeEvent<HTMLInputElement>);
@@ -37,7 +45,7 @@ const Form = () => {
   return (
     <form onSubmit={handleSubmit}>
       <Box>
-        <InputField label="Todo" value={todo} onChange={handleTodoChange} />
+        <InputField label="Todo" value={title} onChange={handleTodoChange} />
         <InputField
           label="Description"
           value={description}

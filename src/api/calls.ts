@@ -19,7 +19,11 @@ export async function createTodo(newTodo: any) {
   return response.json();
 }
 
-export async function updateTodo(updatedTodo: { id: any }): Promise<any> {
+export async function updateTodo(updatedTodo: {
+  id: string | undefined;
+  title: string;
+  description: string;
+}): Promise<any> {
   const response = await fetch(
     `http://localhost:3000/todos/${updatedTodo.id}`,
     {
